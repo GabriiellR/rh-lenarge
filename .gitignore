@@ -2,6 +2,5 @@
 .vscode/*
 .dist/*
 
-// Jetbrains IDE
-.idea/*
+core/Database.php
 

@@ -2,10 +2,10 @@
 
 class Database {
 
-    private static $host = '<host>';
-    private static $db = '<database_name>'; 
-    private static $user = '<user>';
-    private static $pw = '<password>';
+    private static $host = 'localhost';
+    private static $db = 'rh_lenarge'; 
+    private static $user = 'root';
+    private static $pw = '';
 
     private static function connect() {
         $pdo = new PDO('mysql:host=' . self::$host . ';dbname=' . self::$db .';charset=utf8', self::$user, self::$pw);

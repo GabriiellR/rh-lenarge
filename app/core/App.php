@@ -16,6 +16,10 @@ class App
             unset($url[0]);
         }
 
+        if($this->controller != 'login'){
+            AuthMiddleware::VerificarSessaoUsuario();
+        }
+
         // If controller (url[0]) doesn't exist it will use 'home' automatically
         require_once '../app/controllers/' . $this->controller . '.php';
 

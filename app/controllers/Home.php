@@ -10,7 +10,7 @@ class Home extends Controller {
         // Call function from the model
         $testData = $test->getTestFunction();
 
-        $this->view('home/index', ['test' => testData, 'parameters' => [$param1, $param2, $param3]]);
+        $this->view('home/index', ['test' => $testData, 'parameters' => [$param1, $param2, $param3]]);
     }
 }
 

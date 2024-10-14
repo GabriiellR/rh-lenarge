@@ -6,7 +6,7 @@
         <h1>Contact Page (index)</h1>
         <?php
 
-        // $data ==> data that was passed via the view
+        // $data ==> data that was passed via the view.
         $testData = $data['test'];
 
         // Get the data via functions

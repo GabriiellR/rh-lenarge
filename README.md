@@ -1,17 +1,17 @@
-# Model View Controller - Design Pattern for PHP
+# Model View Controller - Padrão de Design para PHP
 
-## Models
+## Modelos
 
-All the database functions are stored in here.  
-Every table has his own object inside of the model folder.
+Todas as funções do banco de dados são armazenadas aqui.  
+Cada tabela possui seu próprio objeto dentro da pasta model.
 
-## Views
+## Visualizações
 
-All the web pages are stored in here.  
-Every page has his own folder with an index.php.  
-All the data is passed to the view via the $data variable.
+Todas as páginas da web são armazenadas aqui.  
+Cada página tem sua própria pasta com um index.php.  
+Todos os dados são passados ​​para a visualização por meio da variável $data.
 
-## Controller
+## Controlador
 
-All the functionallities are stored in here.  
-All the models are called inside the controllers and can be modified and then be passed to the view.
+Todas as funcionalidades são armazenadas aqui.  
+Todos os modelos são chamados dentro dos controladores e podem ser modificados e depois passados ​​​​para a visualização.
