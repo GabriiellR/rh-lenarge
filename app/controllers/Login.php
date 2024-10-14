@@ -2,30 +2,26 @@
 
 class Login extends Controller
 {
-    public function Logar()
+    public function Logar($usuario, $senha)
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $username = $_POST['username'];
-            $password = $_POST['password'];
+
 
             $usuario = $this->model("Usuario");
+            $informacoesUser = $usuario::Autenticar($usuario, $senha);
 
-            // Validação das credenciais
-            $user = $usuario::Autenticar($username, $password);
-
-            if ($user) {
-
-                $_SESSION['user'] = $user;
-
+            if ($informacoesUser) {
+                $_SESSION['user'] = $informacoesUser;
                 header('Location: /inicio');
                 exit();
             } else {
-                echo "Usuário ou senha incorretos.";
+                $_SESSION['erro_autenticacao'] = "Usuário ou senha incorretos.";
             }
         }
     }
 
-    public function index(){
+    public function index()
+    {
         $this->view('login/index', []);
     }
 }

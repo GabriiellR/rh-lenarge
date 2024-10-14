@@ -51,7 +51,7 @@
         display: flex;
         flex-direction: column;
         width: 30%;
-        height: 40%;
+        height: 55%;
         justify-content: center;
         align-items: center;
         gap: 1em;
@@ -92,13 +92,15 @@
                         <input type="password" class="white-text center-align validade d-flex" id="senha" name="senha_usuario" placeholder="Senha" required>
                         <label for="senha">Senha</label>
                     </div>
-                    
+
                 </div>
 
                 <div class="red-text">
                     <?php
-                    echo $_SESSION['erro_autenticacao'];
-                    unset($_SESSION['erro_autenticacao']);
+                    if (isset($_SESSION['erro_autenticacao'])) {
+                        echo $_SESSION['erro_autenticacao'];
+                        unset($_SESSION['erro_autenticacao']);
+                    }
                     ?>
                 </div>
 
