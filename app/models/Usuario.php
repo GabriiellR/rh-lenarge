@@ -1,6 +1,6 @@
 <?php
 
-class Test {
+class Usuario {
 
     // Call to the database
     public function Autenticar($usuario, $senha) {

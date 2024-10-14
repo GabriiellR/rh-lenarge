@@ -6,12 +6,12 @@ class Contact extends Controller {
     public function index($param1= '', $param2= '', $param3= '') {
         
         // Initialize Test model
-        $test = $this->model('Test');
+        $test = $this->model('Usuario');
 
         // Call function from the model
-        $testData = $test->getTestFunction();
+        // $testData = $test->getTestFunction();
 
-        $this->view('contact/index', ['test' => $testData, 'parameters' => [$param1, $param2, $param3]]);
+        $this->view('contact/index', []);
     }
 }
 

@@ -6,7 +6,8 @@ class App
     protected $method = 'index';
     protected $params = [];
 
-    public function __construct() {
+    public function __construct()
+    {
         // Parse url into readable string
         $url = $this->parseUrl();
 
@@ -16,7 +17,7 @@ class App
             unset($url[0]);
         }
 
-        if($this->controller != 'login'){
+        if ($this->controller != 'login') {
             AuthMiddleware::VerificarSessaoUsuario();
         }
 
@@ -42,10 +43,12 @@ class App
     }
 
     // Parse url  into useable array
-    private function parseUrl() {
-        if (isset($_GET['url']))
-            return $url = explode('/', filter_var(rtrim($_GET['url'], '/'), FILTER_SANITIZE_URL));
+    private function parseUrl()
+    {
+        if (isset($_SERVER['REQUEST_URI'])) {
+            $url = ltrim(rtrim($_SERVER['REQUEST_URI'], '/'), '/'); // Remove barras no início e no final
+            return array_filter(explode('/', $url)); // Filtra elementos vazios
+        }
+        
     }
 }
-
-?>
