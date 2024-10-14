@@ -54,7 +54,7 @@
         height: 40%;
         justify-content: center;
         align-items: center;
-        gap: 2em;
+        gap: 1em;
     }
 
 
