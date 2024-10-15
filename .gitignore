@@ -2,5 +2,5 @@
 .vscode/*
 .dist/*
 
-core/Database.php
+app/core/Database.php
 

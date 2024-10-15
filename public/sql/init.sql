@@ -4,7 +4,6 @@ CREATE TABLE usuarios (
     nome VARCHAR(255),
     login VARCHAR(255),
     senha VARCHAR(255),
-    salt VARCHAR(255),
     data_admissao DATE,
     departamento_id INT,
     funcao_id INT,

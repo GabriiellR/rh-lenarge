@@ -8,7 +8,6 @@ class AuthMiddleware
         }
 
         if (!isset($_SESSION['user'])) {
-            // Redireciona para a página de login
             header('Location: /login');
             exit();
         }

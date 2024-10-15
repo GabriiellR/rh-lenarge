@@ -2,9 +2,13 @@
 
 class Usuario {
 
-    // Call to the database
-    public function Autenticar($usuario, $senha) {
-        return Database::query("SELECT testAttribute1, testAttribute2 FROM test");
+    public static function BuscarPorLogin($usuario) {
+        return Database::query("SELECT id,
+                                       senha, 
+                                       nome,
+                                       data_admissao
+                                  FROM usuarios
+                                 WHERE login = '$usuario'");
     }
 }
 

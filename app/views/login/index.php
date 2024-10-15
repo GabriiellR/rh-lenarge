@@ -72,7 +72,7 @@
 </style>
 
 <div class="body-login">
-    <form action="" method="POST">
+    <form action="login/autenticar" method="POST">
         <div class="login-center">
             <div class="container-login bg-color" data-aos="fade-right">
 
@@ -84,12 +84,12 @@
 
                     <div class="input-field ">
                         <label for="usuario">Usuário</label>
-                        <input type="text" class="white-text center-align validade" id="usuario" name="usuario_dominio" placeholder="Usuario de rede" required>
+                        <input type="text" class="white-text center-align validade" id="usuario" name="usuario" placeholder="Usuario" required/>
                     </div>
 
                     <div class="input-field mt-2">
                         <i class="material-icons sufix white-text" id="icone-ver-senha">remove_red_eye</i>
-                        <input type="password" class="white-text center-align validade d-flex" id="senha" name="senha_usuario" placeholder="Senha" required>
+                        <input type="password" class="white-text center-align validade d-flex" id="senha" name="senha" placeholder="Senha" required>
                         <label for="senha">Senha</label>
                     </div>
 
