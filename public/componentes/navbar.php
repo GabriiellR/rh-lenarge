@@ -1,8 +1,8 @@
 <div class="navbar-fixed">
     <nav>
-        <div class="nav-wrapper">
-            <a href="#!" class="brand-logo center">Início</a>
-            <ul class="right hide-on-med-and-down"></ul>
+        <div class="nav-wrapper px-1">
+            <a class="brand-logo center">Início</a>
+            <a class="brand-logo left red-text">///</a>
         </div>
     </nav>
 </div>
