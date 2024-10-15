@@ -1,31 +1,25 @@
 <html>
 
 <head>
-
+    <link rel="stylesheet" href="css/materialize/materialize.css" />
+    <link rel="stylesheet" href="css/materialize/icons/icon.css" />
 </head>
 
 <body>
-    <h1>Home Page (index)</h1>
+
+    <?php include '../public/componentes/navbar.php' ?>
+
+
+    <h3>Página inicial</h3>
     <?php
 
     print_r($_SESSION['user']);
-    // $data ==> data that was passed via the view
-    $testData = $data['test'];
 
-    // Get the data via functions
-    // Functions are the attribute names of the table
-    $testData->testAttribute1;
-    $testData->testAttribute2;
-
-    // $data ==> data that was passed via the view
-    $parameters = $data['parameters'];
-
-    // Get the data via an array
-    echo "Parameter 1: " . $parameters[0] . '<br>';
-    echo "Parameter 2: " . $parameters[1] . '<br>';
-    echo "Parameter 3: " . $parameters[2] . '<br>';
 
     ?>
+
+    <script type="text/javascript" src="js/materialize/materialize.js"></script>
+
 </body>
 
 </html>

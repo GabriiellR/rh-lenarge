@@ -45,7 +45,6 @@ class Login extends Controller
         $this->view('login/index', []);
     }
 
-    // Método de logoff
     public function logoff()
     {
         if (session_status() === PHP_SESSION_NONE) {
