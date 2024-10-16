@@ -35,6 +35,7 @@ CREATE TABLE usuarios (
     gestor_id INT,
     administrador BOOLEAN,
     redefinir_senha BOOLEAN,
+    ativo BOOLEAN,
     FOREIGN KEY (departamento_id) REFERENCES departamentos(id),
     FOREIGN KEY (funcao_id) REFERENCES funcoes(id),
     FOREIGN KEY (segmento_id) REFERENCES segmentos(id),
