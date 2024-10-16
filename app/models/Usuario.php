@@ -17,7 +17,7 @@ class Usuario
     {
         return Database::query("SELECT a.id,
                                        a.nome,
-                                       a.data_admissao,
+                                             DATE_FORMAT(a.data_admissao, '%d/%m/%Y') data_admissao,
                                        b.nome departamento,
                                        c.nome funcao,
                                        d.nome segmento,
@@ -28,6 +28,6 @@ class Usuario
                              LEFT JOIN funcoes c ON c.id = a.funcao_id
                              LEFT JOIN segmentos d ON d.id = a.segmento_id
                              LEFT JOIN setores e ON e.id = a.setor_id
-                             LEFT JOIN usuarios f ON f.id = a.id");
+                             LEFT JOIN usuarios f ON f.id = a.gestor_id");
     }
 }
