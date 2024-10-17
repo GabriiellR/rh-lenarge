@@ -76,8 +76,8 @@
                         <span class="card-title center-align element">
                             <h2> <i class="medium material-icons">settings_ethernet</i></h2>
                         </span>
-                        <p class="center-align">Sub-setores</p>
-                        <p class="center-align"><strong><small>Sub-setores Cadastrados</small></strong></p>
+                        <p class="center-align">Subsetores</p>
+                        <p class="center-align"><strong><small>Subsetores Cadastrados</small></strong></p>
                     </div>
                 </div>
             </a>

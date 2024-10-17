@@ -6132,6 +6132,12 @@ body.keyboard-focused .dropdown-content li:focus {
   overflow-y: auto;
   border-radius: 2px;
   will-change: top, opacity;
+  overflow: visible;
+}
+
+.lg{
+  max-height: 80% !important;
+  width: 80% !important;
 }
 
 .modal:focus {

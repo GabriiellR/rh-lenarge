@@ -45,7 +45,7 @@
     </div>
 
     <!-- MODAL NOVO FUNCIONARIO -->
-    <div class="modal modal-fixed-footer" id="novo-funcionario">
+    <div class="modal lg modal-fixed-footer" id="novo-funcionario">
         <div class="modal-content">
 
             <div class="row">
@@ -76,8 +76,71 @@
 
                 <?php } ?>
                 </div>
+
+
+                <div class="col s12 m12 l6 input-field">
+                    <select name="segmento" id="segmento" class="select2 browser-default">
+                        <option disabled selected>Escolha um Segmento</option>
+                        <?php foreach ($data['segmentos'] as $segmento) { ?>
+                            <option value="<?php echo $segmento['id'] ?>"><?php echo $segmento['nome'] ?></option>
+                    </select>
+                    <label for="segmento" class="active">Segmento</label>
+
+                <?php } ?>
+                </div>
             </div>
 
+            <div class="row">
+                <div class="col s12 m12 l6 input-field">
+                    <select name="setor" id="setor" class="select2 browser-default">
+                        <option disabled selected>Escolha um Setor</option>
+                        <?php foreach ($data['setores'] as $setor) { ?>
+                            <option value="<?php echo $setor['id'] ?>"><?php echo $setor['nome'] ?></option>
+                    </select>
+                    <label for="setor" class="active">Setor</label>
+
+                <?php } ?>
+                </div>
+
+                <div class="col s12 m12 l6 input-field">
+                    <select name="subsetor" id="subsetor" class="select2 browser-default">
+                        <option disabled selected>Escolha um Subsetor</option>
+                        <?php foreach ($data['subsetores'] as $subsetor) { ?>
+                            <option value="<?php echo $subsetor['id'] ?>"><?php echo $subsetor['nome'] ?></option>
+                    </select>
+                    <label for="subsetor" class="active">Subsetor</label>
+
+                <?php } ?>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col s12 m12 l6 input-field">
+                    <select name="funcao" id="funcao" class="select2 browser-default">
+                        <option disabled selected>Escolha uma Função</option>
+                        <?php foreach ($data['funcoes'] as $funcao) { ?>
+                            <option value="<?php echo $funcao['id'] ?>"><?php echo $funcao['nome'] ?></option>
+                    </select>
+                    <label for="funcao" class="active">Função</label>
+
+                <?php } ?>
+                </div>
+
+                <div class="col s12 m12 l6 input-field">
+                    <select name="gestor" id="gestor" class="select2 browser-default">
+                        <option disabled selected>Escolha um Gestor</option>
+                        <?php foreach ($data['usuarios'] as $gestor) { ?>
+                            <option value="<?php echo $gestor['id'] ?>"><?php echo $gestor['nome'] ?></option>
+                    </select>
+                    <label for="gestor" class="active">Gestor</label>
+
+                <?php } ?>
+                </div>
+
+            
+
+            </div>
         </div>
         <div class="modal-footer"><button class="btn">Salvar</button></div>
     </div>
@@ -137,12 +200,20 @@
                     helperClass.PreencherDados(rowData);
                 }
 
-
-                const selectDepartamentos = $('#departamento');
                 const modalNovoFuncionario = $('#novo-funcionario');
+                const selectDepartamentos = $('#departamento');
+                const selectSegmentos = $('#segmento');
+                const selectSetores = $('#setor');
+                const selectSubsetores = $('#subsetor');
+                const selectFuncoes = $('#funcao');
+                const selectGestores = $('#gestor');
 
-                const select = helperClass.CarregarSelect2(selectDepartamentos, modalNovoFuncionario);
-                console.log(select);
+                helperClass.CarregarSelect2(selectDepartamentos, modalNovoFuncionario);
+                helperClass.CarregarSelect2(selectSegmentos, modalNovoFuncionario);
+                helperClass.CarregarSelect2(selectSetores, modalNovoFuncionario);
+                helperClass.CarregarSelect2(selectSubsetores, modalNovoFuncionario);
+                helperClass.CarregarSelect2(selectFuncoes, modalNovoFuncionario);
+                helperClass.CarregarSelect2(selectGestores, modalNovoFuncionario);
             }
         })
     </script>
