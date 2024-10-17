@@ -103,6 +103,11 @@ html {
   margin-top: 40px;
 }
 
+.disabled{
+  filter: blur(2px);
+  pointer-events: none;
+  cursor: default !important;
+}
 /* FIM CUSTOM CSS */
 
 .materialize-red {

@@ -14,8 +14,8 @@
 
     <div class="row mt-2">
         <div class="col s12 m12 l6">
-            <a href="fila_atendimento.php">
-                <div class="card hoverable">
+            <a href="#">
+                <div class="card hoverable disabled">
                     <div class="card-content white-text">
                         <span class="card-title center-align">
                             <h3 class="count">0</h3>
@@ -28,8 +28,8 @@
         </div>
 
         <div class="col s12 m12 l6">
-            <a href="fila_atendimento.php">
-                <div class="card hoverable">
+            <a href="#">
+                <div class="card hoverable disabled">
                     <div class="card-content white-text">
                         <span class="card-title center-align element">
                             <h2> <i class="medium material-icons">assignment</i></h2>
@@ -44,9 +44,9 @@
 
     <div class="row mt-1">
         <div class="col s12 m12 l6">
-            <a href="fila_atendimento.php">
+            <a href="#">
                 <div class="card hoverable">
-                    <div class="card-content white-text">
+                    <div class="card-content white-text disabled">
                         <span class="card-title center-align element">
                             <h2> <i class="medium material-icons">settings</i></h2>
                         </span>
