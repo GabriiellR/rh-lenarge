@@ -5623,7 +5623,7 @@ small {
 .btn:hover,
 .btn-large:hover,
 .btn-small:hover {
-  background-color: #2bbbad;
+  background-color: var(--cor-secundaria);
 }
 
 .btn-floating {
@@ -6124,7 +6124,7 @@ body.keyboard-focused .dropdown-content li:focus {
   position: fixed;
   left: 0;
   right: 0;
-  background-color: #fafafa;
+  background-color: var(--cor-secundaria);
   padding: 0;
   max-height: 70%;
   width: 55%;
@@ -6161,7 +6161,7 @@ body.keyboard-focused .dropdown-content li:focus {
 
 .modal .modal-footer {
   border-radius: 0 0 2px 2px;
-  background-color: #fafafa;
+  background-color: var(--cor-secundaria);
   padding: 4px 6px;
   height: 56px;
   width: 100%;
@@ -6527,6 +6527,7 @@ textarea.materialize-textarea {
   padding: 0;
   -webkit-box-shadow: none;
   box-shadow: none;
+  color: var(--cor-texto);
   -webkit-box-sizing: content-box;
   box-sizing: content-box;
   -webkit-transition: border .3s, -webkit-box-shadow .3s;

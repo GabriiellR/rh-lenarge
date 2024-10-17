@@ -13,10 +13,16 @@ class Funcionarios extends Controller
         $userModel = $this->model("Usuario");
         $usuarios = $userModel::BuscarTodosUsuarios();
 
-        if (!$usuarios) {
-            throw new Exception("Erro ao buscar os dados dos usuário.");
-        }
+        $departametoModel = $this->model('Departamento');
+        $departamentos = $departametoModel::BuscarTodosDepartamentos();
 
-        $this->view("funcionarios/listar_funcionarios", $usuarios);
+      
+
+        $data = [
+            'usuarios' => $usuarios,
+            'departamentos' => $departamentos
+        ];
+
+        $this->view("funcionarios/listar_funcionarios", $data);
     }
 }

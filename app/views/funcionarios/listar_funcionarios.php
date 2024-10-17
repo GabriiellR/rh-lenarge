@@ -1,18 +1,16 @@
-
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/materialize/materialize.css" />
-    <link rel="stylesheet" href="../css/materialize/icons/icon.css" />
-    <link rel="stylesheet" href="../css/datatables/datatables.css" />
+    <link type="text/css" rel="stylesheet" href="../css/materialize/materialize.css" />
+    <link type="text/css" rel="stylesheet" href="../css/materialize/icons/icon.css" />
+    <link type="text/css" rel="stylesheet" href="../css/datatables/datatables.css" />
+    <link type="text/css" rel="stylesheet" href="../css/select2/select2.css" />
     <title>RH Lenarge</title>
 </head>
 
 <body>
     <?php include '../public/componentes/navbar.php' ?>
     <?php include '../public/componentes/sidebar.php' ?>
-
 
     <div class="row mb-0">
         <div class="navbar-fixed">
@@ -46,46 +44,107 @@
         </div>
     </div>
 
-    <script type="text/javascript" src="../js/materialize/materialize.js"></script>
-    <script type="text/javascript" src="../js/jquery/jquery-3.7.1.min.js"></script>
+    <!-- MODAL NOVO FUNCIONARIO -->
+    <div class="modal modal-fixed-footer" id="novo-funcionario">
+        <div class="modal-content">
+
+            <div class="row">
+                <div class="col s12 m12 l12">
+                    <h5>Novo Funcionário</h5>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col s12 m12 l6 input-field">
+                    <label for="nome">Nome</label>
+                    <input type="text" name="nome" id="nome" data-field="nome" data-type="input" placeholder="Digite um nome" required />
+                </div>
+                <div class="col s12 m12 l6 input-field">
+                    <label for="login">Login</label>
+                    <input type="text" name="login" id="login" data-field="login" data-type="input" placeholder="Defina o login" required />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col s12 m12 l6 input-field">
+                    <select name="departamento" id="departamento" class="select2 browser-default">
+                        <option disabled selected>Escolha um Departamento</option>
+                        <?php foreach ($data['departamentos'] as $departamento) { ?>
+                            <option value="<?php echo $departamento['id'] ?>"><?php echo $departamento['nome'] ?></option>
+                    </select>
+                    <label for="departamento" class="active">Departamento</label>
+
+                <?php } ?>
+                </div>
+            </div>
+
+        </div>
+        <div class="modal-footer"><button class="btn">Salvar</button></div>
+    </div>
+
     <script type="text/javascript" src="../js/datatables/datatables.js"></script>
+    <script type="text/javascript" src="../js/select2/select2.js"></script>
+    <script type="text/javascript" src="../js/materialize/materialize.js"></script>
     <script type="text/javascript" src="../js/helpers/helper.js"></script>
     <script type="text/javascript">
-        const settings = {
-            data: <?php echo json_encode($data); ?>,
-            columns: [{
-                    data: 'id'
-                },
-                {
-                    data: 'nome'
-                },
-                {
-                    data: 'data_admissao'
-                },
-                {
-                    data: 'departamento'
-                },
-                {
-                    data: 'funcao'
-                },
-                {
-                    data: 'segmento'
-                },
-                {
-                    data: 'setor'
-                },
-                {
-                    data: 'gestor'
+        $(function() {
+
+            const settings = {
+                data: <?php echo json_encode($data['usuarios']); ?>,
+                columns: [{
+                        data: 'id'
+                    },
+                    {
+                        data: 'nome'
+                    },
+                    {
+                        data: 'data_admissao'
+                    },
+                    {
+                        data: 'departamento'
+                    },
+                    {
+                        data: 'funcao'
+                    },
+                    {
+                        data: 'segmento'
+                    },
+                    {
+                        data: 'setor'
+                    },
+                    {
+                        data: 'gestor'
+                    }
+                ],
+                functionDetalhes: ((rowData) => {
+                    ConfigurarModalFuncionario(rowData);
+                }),
+                functionNovoRegistro: (() => {
+                    ConfigurarModalFuncionario();
+                })
+            }
+
+            var helperClass = new Helper();
+            var elemento = '#table-funcionarios';
+            helperClass.CarregarDatatables(elemento, settings);
+
+            function ConfigurarModalFuncionario(rowData) {
+                $('.modal').modal();
+                $('.modal input').val('');
+                $('#novo-funcionario').modal('open');
+
+                if (rowData) {
+                    helperClass.PreencherDados(rowData);
                 }
-            ],
-            urlDetalhes: '../viagem/view_viagem.php'
-        }
 
-        var helperClass = new Helper();
-        var elemento = $('#table-funcionarios');
-        helperClass.CarregarDatatables(elemento, settings);
 
-        
+                const selectDepartamentos = $('#departamento');
+                const modalNovoFuncionario = $('#novo-funcionario');
+
+                const select = helperClass.CarregarSelect2(selectDepartamentos, modalNovoFuncionario);
+                console.log(select);
+            }
+        })
     </script>
 
 </body>

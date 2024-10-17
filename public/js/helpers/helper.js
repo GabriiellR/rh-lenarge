@@ -2,7 +2,7 @@ class Helper {
 
     CarregarDatatables(elemento, settings) {
 
-      const datatable =  new DataTable(elemento, {
+        const datatable = new DataTable(elemento, {
             "dom": 'lBfrtip',
             "paging": true,
             "searching": true,
@@ -54,59 +54,86 @@ class Helper {
         })
 
 
-        // if (!settings.urlNovoRegistro && !(settings.functionNovoRegistro && typeof settings.functionNovoRegistro === 'function')) {
-        //     // datatable.buttons([0, '0']).disable();
-        // }
+        if (!settings.urlNovoRegistro && !(settings.functionNovoRegistro && typeof settings.functionNovoRegistro === 'function')) {
+            datatable.buttons([0, '0']).disable();
+        }
 
-        // $(`#${elemento} tbody`).on('click', 'tr', function () {
-        //     var rowData = datatable.row(this).data();
-        //     var id = rowData.id;
+        $(`${elemento} tbody`).on('click', 'tr', function () {
+            var rowData = datatable.row(this).data();
+            var id = rowData.id;
 
-        //     if (settings.field) {
-        //         id = rowData[settings.field];
-        //     }
+            if (settings.field) {
+                id = rowData[settings.field];
+            }
 
-        //     if (settings.urlDetalhes) {
-        //         var endereco = `${settings.urlDetalhes}?id=${id}`;
-        //         window.location.href = endereco;
-        //     } else if (settings.functionDetalhes && typeof settings.functionDetalhes === 'function') {
-        //         settings.functionDetalhes(rowData);
-        //     }
-        // });
+            if (settings.urlDetalhes) {
+                var endereco = `${settings.urlDetalhes}/${id}`;
+                window.location.href = endereco;
+            } else if (settings.functionDetalhes && typeof settings.functionDetalhes === 'function') {
+                settings.functionDetalhes(rowData);
+            }
+        });
 
         return datatable;
     }
 
-    CarregarSelect2Materialize(idElemento, listaDados, dropdownParent) {
+    CarregarSelect2(idElemento, dropdownParent) {
 
-        if (dropdownParent === undefined) {
+        if (dropdownParent == undefined) {
             dropdownParent = "";
         }
 
-        const elemento = document.querySelector(idElemento);
-        const placeholder = this.dataset.placeholder;
-
-        const select2 = new Select2(elemento, {
-            placeholder: placeholder,
+        const select2 = $(idElemento).select2({
             closeOnSelect: true,
+            dropdownAutoWidth: true,
             dropdownParent: dropdownParent
         });
 
-        listaDados.forEach(value => {
-            const option = document.createElement('option');
-            option.dataset.nome = value.nome;
-            option.dataset.email = value.emailPrincipal;
-            option.dataset.value = value.id;
-            option.value = value.id;
-            option.textContent = value.nome + (value.sobrenome ? ` ${value.sobrenome}` : "");
-            elemento.appendChild(option);
-        });
-
-        const labels = document.querySelectorAll('label');
-        labels.forEach(label => {
-            label.classList.add('active');
-        });
-
         return select2;
+    }
+
+    PreencherDados(response) {
+        const funcoesPorTipoCampo = {
+            text: function (objeto, valor, response) {
+                objeto.html(valor);
+            },
+            image: function (objeto, valor) {
+                objeto.attr('src', `data:image/png;base64,${valor}`);
+            },
+            input: function (objeto, valor) {
+                objeto.val(valor);
+            },
+            select: function (objeto, valor) {
+                objeto.val(valor).change();
+            },
+            dinheiro: function (objeto, valor) {
+                var valorMoeda = parseFloat(valor).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+                objeto.val(valorMoeda).html(valorMoeda);
+            },
+            data: function (objeto, valor) {
+                objeto.val(valor).html(valor);
+            },
+            checkbox: function (objeto, valor) {
+                objeto.prop('checked', !!valor);
+            },
+            radio: function (objeto, valor) {
+                objeto.prop('checked', objeto.val() == valor);
+            }
+        };
+
+        $('[data-field]').each(function () {
+
+            var objeto = $(this);
+            var campo = objeto.data('field');
+            var valor = response[campo];
+            var tipo = objeto.data('type');
+
+            var funcao = funcoesPorTipoCampo[tipo];
+
+            if (funcao) {
+                funcao(objeto, valor, response);
+            }
+        });
+
     }
 }

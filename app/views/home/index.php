@@ -16,7 +16,7 @@
                 <div class="card hoverable">
                     <div class="card-content white-text">
                         <span class="card-title center-align">
-                            <h3 class="count">26</h3>
+                            <h3 class="count">0</h3>
                         </span>
                         <p class="center-align">Avaliações</p>
                         <p class="center-align"><strong><small>Avaliações a responder</small></strong></p>
