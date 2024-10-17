@@ -7,8 +7,10 @@
 
 <body>
 
-    <?php include '../public/componentes/navbar.php' ?>
-    <?php include '../public/componentes/sidebar.php' ?>
+    <?php $titulo_pagina = "Avaliações";
+          include '../public/componentes/navbar.php';
+          include '../public/componentes/sidebar.php'
+     ?>
 
     <div class="row mt-2">
         <div class="col s12 m12 l6">

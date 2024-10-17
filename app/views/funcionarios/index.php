@@ -7,8 +7,9 @@
 
 <body>
 
-    <?php include '../public/componentes/navbar.php' ?>
-    <?php include '../public/componentes/sidebar.php' ?>
+    <?php $titulo_pagina = "Gestão de Funcionários";
+          include '../public/componentes/navbar.php';
+          include '../public/componentes/sidebar.php' ?>
 
     <div class="row mt-2">
         <div class="col s12 m6 l3">
@@ -26,7 +27,7 @@
         </div>
 
         <div class="col s12 m6 l3">
-            <a href="fila_atendimento.php">
+            <a href="segmentos">
                 <div class="card hoverable">
                     <div class="card-content white-text">
                         <span class="card-title center-align element">
@@ -40,7 +41,7 @@
         </div>
 
         <div class="col s12 m6 l3">
-            <a href="fila_atendimento.php">
+            <a href="departamentos">
                 <div class="card hoverable">
                     <div class="card-content white-text">
                         <span class="card-title center-align element">
@@ -54,7 +55,7 @@
         </div>
 
         <div class="col s12 m6 l3">
-            <a href="fila_atendimento.php">
+            <a href="setores">
                 <div class="card hoverable">
                     <div class="card-content white-text">
                         <span class="card-title center-align element">
@@ -70,7 +71,7 @@
 
     <div class="row">
         <div class="col s12 m6 l3">
-            <a href="fila_atendimento.php">
+            <a href="subsetores">
                 <div class="card hoverable">
                     <div class="card-content white-text">
                         <span class="card-title center-align element">
@@ -84,7 +85,7 @@
         </div>
 
         <div class="col s12 m6 l3">
-            <a href="fila_atendimento.php">
+            <a href="funcoes">
                 <div class="card hoverable">
                     <div class="card-content white-text">
                         <span class="card-title center-align element">

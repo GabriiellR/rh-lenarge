@@ -9,8 +9,11 @@
 </head>
 
 <body>
-    <?php include '../public/componentes/navbar.php' ?>
-    <?php include '../public/componentes/sidebar.php' ?>
+    <?php 
+          $titulo_pagina = "Departamentos";
+          include '../public/componentes/navbar.php';
+          include '../public/componentes/sidebar.php';
+    ?>
 
     <div class="row mb-0">
         <div class="navbar-fixed">
@@ -18,7 +21,7 @@
                 <div class="nav-wrapper <?php echo $navbar_color ?>">
                     <div class="col s12">
                         <a href="/funcionarios" class="breadcrumb <?php echo $text_color ?>">Funcionários</a>
-                        <a href="#" class="breadcrumb <?php echo $text_color ?>">Lista de Segmentos</a>
+                        <a href="#" class="breadcrumb <?php echo $text_color ?>">Lista de Departamentos</a>
                     </div>
                 </div>
             </nav>
@@ -27,7 +30,7 @@
 
     <div class="row mt-2">
         <div class="col s12 m12 l12">
-            <table id="table-funcionarios">
+            <table id="table-departamentos">
                 <thead>
                     <tr>
                         <th>Id</th>
@@ -38,13 +41,19 @@
         </div>
     </div>
 
-    <!-- MODAL NOVO SEGMENTO -->
-    <div class="modal lg modal-fixed-footer" id="novo-segmento">
+    <!-- MODAL NOVO DEPARTAMENTO -->
+    <div class="modal" id="novo-departamento">
         <div class="modal-content">
 
             <div class="row">
                 <div class="col s12 m12 l12">
-                    <h5>Informações Segmento</h5>
+                    <h5>Informações Departamento</h5>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col s12 m12 l12 input-field">
+                    <input type="text" name="nome" id="nome" data-field="nome" data-type="input" />
                 </div>
             </div>
 
@@ -59,36 +68,36 @@
     <script type="text/javascript">
         $(function() {
 
-            // const settings = {
-            //     data: <?php echo json_encode($data['usuarios']); ?>,
-            //     columns: [{
-            //             data: 'id'
-            //         },
-            //         {
-            //             data: 'nome'
-            //         },
-            //     ],
-            //     functionDetalhes: ((rowData) => {
-            //         ConfigurarModalFuncionario(rowData);
-            //     }),
-            //     functionNovoRegistro: (() => {
-            //         ConfigurarModalFuncionario();
-            //     })
-            // }
+            const settings = {
+                data: <?php echo json_encode($data); ?>,
+                columns: [{
+                        data: 'id'
+                    },
+                    {
+                        data: 'nome'
+                    },
+                ],
+                functionDetalhes: ((rowData) => {
+                    ConfigurarModalDpartamento(rowData);
+                }),
+                functionNovoRegistro: (() => {
+                    ConfigurarModalDpartamento();
+                })
+            }
 
-            // var helperClass = new Helper();
-            // var elemento = '#table-funcionarios';
-            // helperClass.CarregarDatatables(elemento, settings);
+            var helperClass = new Helper();
+            var elemento = '#table-departamentos';
+            helperClass.CarregarDatatables(elemento, settings);
 
-            // function ConfigurarModalFuncionario(rowData) {
-            //     $('.modal').modal();
-            //     $('.modal input').val('');
-            //     $('#novo-funcionario').modal('open');
+            function ConfigurarModalDpartamento(rowData) {
+                $('.modal').modal();
+                $('.modal input').val('');
+                $('#novo-departamento').modal('open');
 
-            //     if (rowData) {
-            //         helperClass.PreencherDados(rowData);
-            //     }
-            // }
+                if (rowData) {
+                    helperClass.PreencherDados(rowData);
+                }
+            }
         })
     </script>
 
