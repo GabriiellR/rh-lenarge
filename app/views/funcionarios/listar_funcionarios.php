@@ -9,7 +9,8 @@
 </head>
 
 <body>
-    <?php include '../public/componentes/navbar.php' ?>
+    <?php $titulo_pagina="Funcionários"; 
+         include '../public/componentes/navbar.php' ?>
     <?php include '../public/componentes/sidebar.php' ?>
 
     <div class="row mb-0">
