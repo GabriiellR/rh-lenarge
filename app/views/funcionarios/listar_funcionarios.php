@@ -9,8 +9,8 @@
 </head>
 
 <body>
-    <?php $titulo_pagina="Funcionários"; 
-         include '../public/componentes/navbar.php' ?>
+    <?php $titulo_pagina = "Funcionários";
+    include '../public/componentes/navbar.php' ?>
     <?php include '../public/componentes/sidebar.php' ?>
 
     <div class="row mb-0">
@@ -72,22 +72,21 @@
                         <option disabled selected>Escolha um Departamento</option>
                         <?php foreach ($data['departamentos'] as $departamento) { ?>
                             <option value="<?php echo $departamento['id'] ?>"><?php echo $departamento['nome'] ?></option>
+                        <?php } ?>
                     </select>
                     <label for="departamento" class="active">Departamento</label>
 
-                <?php } ?>
                 </div>
-
 
                 <div class="col s12 m12 l6 input-field">
                     <select name="segmento" id="segmento" class="select2 browser-default">
                         <option disabled selected>Escolha um Segmento</option>
                         <?php foreach ($data['segmentos'] as $segmento) { ?>
                             <option value="<?php echo $segmento['id'] ?>"><?php echo $segmento['nome'] ?></option>
+                        <?php } ?>
                     </select>
                     <label for="segmento" class="active">Segmento</label>
 
-                <?php } ?>
                 </div>
             </div>
 
@@ -97,10 +96,10 @@
                         <option disabled selected>Escolha um Setor</option>
                         <?php foreach ($data['setores'] as $setor) { ?>
                             <option value="<?php echo $setor['id'] ?>"><?php echo $setor['nome'] ?></option>
+                        <?php } ?>
                     </select>
                     <label for="setor" class="active">Setor</label>
 
-                <?php } ?>
                 </div>
 
                 <div class="col s12 m12 l6 input-field">
@@ -108,10 +107,10 @@
                         <option disabled selected>Escolha um Subsetor</option>
                         <?php foreach ($data['subsetores'] as $subsetor) { ?>
                             <option value="<?php echo $subsetor['id'] ?>"><?php echo $subsetor['nome'] ?></option>
+                        <?php } ?>
                     </select>
                     <label for="subsetor" class="active">Subsetor</label>
 
-                <?php } ?>
                 </div>
 
             </div>
@@ -122,10 +121,10 @@
                         <option disabled selected>Escolha uma Função</option>
                         <?php foreach ($data['funcoes'] as $funcao) { ?>
                             <option value="<?php echo $funcao['id'] ?>"><?php echo $funcao['nome'] ?></option>
+                        <?php } ?>
                     </select>
                     <label for="funcao" class="active">Função</label>
 
-                <?php } ?>
                 </div>
 
                 <div class="col s12 m12 l6 input-field">
@@ -133,13 +132,11 @@
                         <option disabled selected>Escolha um Gestor</option>
                         <?php foreach ($data['usuarios'] as $gestor) { ?>
                             <option value="<?php echo $gestor['id'] ?>"><?php echo $gestor['nome'] ?></option>
+                        <?php } ?>
                     </select>
                     <label for="gestor" class="active">Gestor</label>
 
-                <?php } ?>
                 </div>
-
-            
 
             </div>
         </div>
@@ -208,6 +205,7 @@
                 const selectSubsetores = $('#subsetor');
                 const selectFuncoes = $('#funcao');
                 const selectGestores = $('#gestor');
+
 
                 helperClass.CarregarSelect2(selectDepartamentos, modalNovoFuncionario);
                 helperClass.CarregarSelect2(selectSegmentos, modalNovoFuncionario);

@@ -41,24 +41,28 @@
 
     <!-- MODAL NOVO DEPARTAMENTO -->
     <div class="modal" id="novo-setor">
-        <div class="modal-content">
+        <form action="setores/addorupdate" method="POST">
 
-            <div class="row">
-                <div class="col s12 m12 l12">
-                    <h5>Informações Setor</h5>
+            <div class="modal-content">
+
+                <div class="row">
+                    <div class="col s12 m12 l12">
+                        <h5>Informações Setor</h5>
+                    </div>
                 </div>
-            </div>
 
-            <input type="hidden" name="id" data-field="id" data-type="input" />
+                <input type="hidden" name="id" data-field="id" data-type="input" />
 
-            <div class="row">
-                <div class="col s12 m12 l12 input-field">
-                    <input type="text" name="nome" id="nome" data-field="nome" data-type="input" />
+                <div class="row">
+                    <div class="col s12 m12 l12 input-field">
+                        <label for="nome">Nome</label>
+                        <input type="text" name="nome" id="nome" data-field="nome" data-type="input" placeholder="Defina um nome"/>
+                    </div>
                 </div>
-            </div>
 
-        </div>
-        <div class="modal-footer"><button class="btn">Salvar</button></div>
+            </div>
+            <div class="modal-footer"><button type="submit" class="btn">Salvar</button></div>
+        </form>
     </div>
 
     <script type="text/javascript" src="../js/datatables/datatables.js"></script>

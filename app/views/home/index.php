@@ -44,9 +44,9 @@
 
     <div class="row mt-1">
         <div class="col s12 m12 l6">
-            <a href="#">
+            <a href="home/listar_avaliacoes_cadastradas">
                 <div class="card hoverable">
-                    <div class="card-content white-text disabled">
+                    <div class="card-content white-text">
                         <span class="card-title center-align element">
                             <h2> <i class="medium material-icons">settings</i></h2>
                         </span>
