@@ -47,100 +47,150 @@
 
     <!-- MODAL NOVO FUNCIONARIO -->
     <div class="modal lg modal-fixed-footer" id="novo-funcionario">
-        <div class="modal-content">
+        <form action="funcionarios/addorupdate" method="POST">
+            <div class="modal-content">
 
-            <div class="row">
-                <div class="col s12 m12 l12">
-                    <h5>Novo Funcionário</h5>
+                <div class="row">
+                    <div class="col s12 m12 l12">
+                        <h5>Novo Funcionário</h5>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col s12 m12 l6 input-field">
+                        <label for="nome">Nome</label>
+                        <input type="text" name="nome" id="nome" data-field="nome" data-type="input" placeholder="Digite um nome" required />
+                    </div>
+                    <div class="col s12 m12 l6 input-field">
+                        <label for="login">Login</label>
+                        <input type="text" name="login" id="login" data-field="login" data-type="input" placeholder="Defina o login" required />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col s12 m12 l6 input-field">
+                        <select name="departamento" id="departamento" class="select2 browser-default">
+                            <option disabled selected>Escolha um Departamento</option>
+                            <?php foreach ($data['departamentos'] as $departamento) { ?>
+                                <option value="<?php echo $departamento['id'] ?>"><?php echo $departamento['nome'] ?></option>
+                            <?php } ?>
+                        </select>
+                        <label for="departamento" class="active">Departamento</label>
+
+                    </div>
+
+                    <div class="col s12 m12 l6 input-field">
+                        <select name="segmento" id="segmento" class="select2 browser-default">
+                            <option disabled selected>Escolha um Segmento</option>
+                            <?php foreach ($data['segmentos'] as $segmento) { ?>
+                                <option value="<?php echo $segmento['id'] ?>"><?php echo $segmento['nome'] ?></option>
+                            <?php } ?>
+                        </select>
+                        <label for="segmento" class="active">Segmento</label>
+
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col s12 m12 l6 input-field">
+                        <select name="setor" id="setor" class="select2 browser-default">
+                            <option disabled selected>Escolha um Setor</option>
+                            <?php foreach ($data['setores'] as $setor) { ?>
+                                <option value="<?php echo $setor['id'] ?>"><?php echo $setor['nome'] ?></option>
+                            <?php } ?>
+                        </select>
+                        <label for="setor" class="active">Setor</label>
+
+                    </div>
+
+                    <div class="col s12 m12 l6 input-field">
+                        <select name="subsetor" id="subsetor" class="select2 browser-default">
+                            <option disabled selected>Escolha um Subsetor</option>
+                            <?php foreach ($data['subsetores'] as $subsetor) { ?>
+                                <option value="<?php echo $subsetor['id'] ?>"><?php echo $subsetor['nome'] ?></option>
+                            <?php } ?>
+                        </select>
+                        <label for="subsetor" class="active">Subsetor</label>
+
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col s12 m12 l6 input-field">
+                        <select name="funcao" id="funcao" class="select2 browser-default">
+                            <option disabled selected>Escolha uma Função</option>
+                            <?php foreach ($data['funcoes'] as $funcao) { ?>
+                                <option value="<?php echo $funcao['id'] ?>"><?php echo $funcao['nome'] ?></option>
+                            <?php } ?>
+                        </select>
+                        <label for="funcao" class="active">Função</label>
+
+                    </div>
+
+                    <div class="col s12 m12 l6 input-field">
+                        <select name="gestor" id="gestor" class="select2 browser-default">
+                            <option disabled selected>Escolha um Gestor</option>
+                            <?php foreach ($data['usuarios'] as $gestor) { ?>
+                                <option value="<?php echo $gestor['id'] ?>"><?php echo $gestor['nome'] ?></option>
+                            <?php } ?>
+                        </select>
+                        <label for="gestor" class="active">Gestor</label>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col s12 m12 l6">
+                            <p>Administrador?</p>
+                            <label>
+                                <input name="administrador" type="radio" value="1" data-type="administrador" data-field="radio" />
+                                <span>Sim</span>
+                            </label>
+
+                            <label>
+                                <input name="administrador" type="radio" value="0" data-type="administrador" data-field="radio" />
+                                <span>Não</span>
+                            </label>
+                        </div>
+
+                        <div class="col s12 m12 l6">
+                            <p>Ativo?</p>
+                            <label>
+                                <input name="ativo" type="radio" value="1" data-type="ativo" data-field="radio" />
+                                <span>Sim</span>
+                            </label>
+
+                            <label>
+                                <input name="ativo" type="radio" value="0" data-type="ativo" data-field="radio" />
+                                <span>Não</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col s12 m12 l6">
+                            <p>Redefinir Senha?</p>
+                            <label>
+                                <input name="redefinir_senha" id="redefinir-senha" type="radio" value="1" data-type="ativo" data-field="radio" />
+                                <span>Sim</span>
+                            </label>
+
+                            <label>
+                                <input name="redefinir_senha" type="radio" checked value="0" data-type="ativo" data-field="radio" />
+                                <span>Não</span>
+                            </label>
+
+                        </div>
+                        <div class="col s12 m12 l6 input-field hide" id="col-senha">
+                            <label for="senha" class="active">Senha</label>
+                            <input type="hidden" name="senha" id="senha" placeholder="Defina uma senha" />
+                        </div>
+                    </div>
+
                 </div>
             </div>
-
-            <div class="row">
-                <div class="col s12 m12 l6 input-field">
-                    <label for="nome">Nome</label>
-                    <input type="text" name="nome" id="nome" data-field="nome" data-type="input" placeholder="Digite um nome" required />
-                </div>
-                <div class="col s12 m12 l6 input-field">
-                    <label for="login">Login</label>
-                    <input type="text" name="login" id="login" data-field="login" data-type="input" placeholder="Defina o login" required />
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col s12 m12 l6 input-field">
-                    <select name="departamento" id="departamento" class="select2 browser-default">
-                        <option disabled selected>Escolha um Departamento</option>
-                        <?php foreach ($data['departamentos'] as $departamento) { ?>
-                            <option value="<?php echo $departamento['id'] ?>"><?php echo $departamento['nome'] ?></option>
-                        <?php } ?>
-                    </select>
-                    <label for="departamento" class="active">Departamento</label>
-
-                </div>
-
-                <div class="col s12 m12 l6 input-field">
-                    <select name="segmento" id="segmento" class="select2 browser-default">
-                        <option disabled selected>Escolha um Segmento</option>
-                        <?php foreach ($data['segmentos'] as $segmento) { ?>
-                            <option value="<?php echo $segmento['id'] ?>"><?php echo $segmento['nome'] ?></option>
-                        <?php } ?>
-                    </select>
-                    <label for="segmento" class="active">Segmento</label>
-
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col s12 m12 l6 input-field">
-                    <select name="setor" id="setor" class="select2 browser-default">
-                        <option disabled selected>Escolha um Setor</option>
-                        <?php foreach ($data['setores'] as $setor) { ?>
-                            <option value="<?php echo $setor['id'] ?>"><?php echo $setor['nome'] ?></option>
-                        <?php } ?>
-                    </select>
-                    <label for="setor" class="active">Setor</label>
-
-                </div>
-
-                <div class="col s12 m12 l6 input-field">
-                    <select name="subsetor" id="subsetor" class="select2 browser-default">
-                        <option disabled selected>Escolha um Subsetor</option>
-                        <?php foreach ($data['subsetores'] as $subsetor) { ?>
-                            <option value="<?php echo $subsetor['id'] ?>"><?php echo $subsetor['nome'] ?></option>
-                        <?php } ?>
-                    </select>
-                    <label for="subsetor" class="active">Subsetor</label>
-
-                </div>
-
-            </div>
-
-            <div class="row">
-                <div class="col s12 m12 l6 input-field">
-                    <select name="funcao" id="funcao" class="select2 browser-default">
-                        <option disabled selected>Escolha uma Função</option>
-                        <?php foreach ($data['funcoes'] as $funcao) { ?>
-                            <option value="<?php echo $funcao['id'] ?>"><?php echo $funcao['nome'] ?></option>
-                        <?php } ?>
-                    </select>
-                    <label for="funcao" class="active">Função</label>
-
-                </div>
-
-                <div class="col s12 m12 l6 input-field">
-                    <select name="gestor" id="gestor" class="select2 browser-default">
-                        <option disabled selected>Escolha um Gestor</option>
-                        <?php foreach ($data['usuarios'] as $gestor) { ?>
-                            <option value="<?php echo $gestor['id'] ?>"><?php echo $gestor['nome'] ?></option>
-                        <?php } ?>
-                    </select>
-                    <label for="gestor" class="active">Gestor</label>
-
-                </div>
-
-            </div>
-        </div>
-        <div class="modal-footer"><button class="btn">Salvar</button></div>
+            <div class="modal-footer"><button class="btn">Salvar</button></div>
+        </form>
     </div>
 
     <script type="text/javascript" src="../js/datatables/datatables.js"></script>
@@ -198,6 +248,11 @@
                     helperClass.PreencherDados(rowData);
                 }
 
+                CarregarSelect2();
+                HandleRedefinirSenha();
+            }
+
+            async function CarregarSelect2() {
                 const modalNovoFuncionario = $('#novo-funcionario');
                 const selectDepartamentos = $('#departamento');
                 const selectSegmentos = $('#segmento');
@@ -206,7 +261,6 @@
                 const selectFuncoes = $('#funcao');
                 const selectGestores = $('#gestor');
 
-
                 helperClass.CarregarSelect2(selectDepartamentos, modalNovoFuncionario);
                 helperClass.CarregarSelect2(selectSegmentos, modalNovoFuncionario);
                 helperClass.CarregarSelect2(selectSetores, modalNovoFuncionario);
@@ -214,6 +268,24 @@
                 helperClass.CarregarSelect2(selectFuncoes, modalNovoFuncionario);
                 helperClass.CarregarSelect2(selectGestores, modalNovoFuncionario);
             }
+
+            function HandleRedefinirSenha() {
+
+                $('input[name=redefinir_senha]').change(() => {
+
+                    var redefinirSenha = $('#redefinir-senha').is(':checked');
+
+                    if (redefinirSenha) {
+                        $('#senha').prop('type', 'password');
+                        $('#col-senha').removeClass('hide');
+                    } else {
+                        $('#senha').prop('type', 'hide');
+                        $('#col-senha').addClass('hide');
+                    }
+
+                });
+            }
+
         })
     </script>
 

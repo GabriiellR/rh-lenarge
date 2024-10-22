@@ -32,7 +32,12 @@ class Usuario
                              LEFT JOIN usuarios f ON f.id = a.gestor_id");
     }
 
-    public static function SalvarUsuario(){
-        
+    public static function AddorUpdate($id, $nome)
+    {
+        if ($id) {
+            return Database::query("UPDATE usuarios SET nome='$nome' WHERE id=$id");
+        } else {
+            return Database::query("INSERT INTO usuarios(nome) VALUES('$nome')");
+        }
     }
 }
