@@ -1,17 +1,18 @@
-# Model View Controller - Padrão de Design para PHP
+# Avaliação de Eficácia
 
-## Modelos
+## Sobre
 
-Todas as funções do banco de dados são armazenadas aqui.  
-Cada tabela possui seu próprio objeto dentro da pasta model.
+Este projeto consiste no desenvolvimento de uma plataforma web para a realização de avaliações de desempenho dos funcionários. O projeto conta com um CRUD completo para todas as entidades do sistema, bem como funções de importação e exportação de dados, para isso, foi utilizado **phpoffice/phpspreadsheet**, bem como um template padrão de arquivo xlsx a ser seguido. Esse modelo estará disponível em um diretóriodo sistema.
+O projeto sempre deverá ser executado a partir da pasta ***public***, caso não seja, será apresentado erros de rota.
 
-## Visualizações
+## Tecnologias
 
-Todas as páginas da web são armazenadas aqui.  
-Cada página tem sua própria pasta com um index.php.  
-Todos os dados são passados ​​para a visualização por meio da variável $data.
+O projeto foi desenvolvido utilizando um template MVC em PHP, com integração de um banco de dados MySQL. Na camada de visualização, foi utilizado o framework **Materialize** para estilização, além de algumas bibliotecas JavaScript para acelerar o desenvolvimento, como:
 
-## Controlador
+- **jQuery**: Facilita a escrita do JavaScript e é uma dependência de outras bibliotecas utilizadas no projeto.
+- **DataTables**: Padroniza a visualização de listas no sistema e oferece funções como exportação de dados.
+- **Select2**: Melhora a usabilidade de campos `<select>`, tornando as escolhas mais fáceis e intuitivas.
 
-Todas as funcionalidades são armazenadas aqui.  
-Todos os modelos são chamados dentro dos controladores e podem ser modificados e depois passados ​​​​para a visualização.
+## Hospedagem
+
+Ainda a ser implementada.
