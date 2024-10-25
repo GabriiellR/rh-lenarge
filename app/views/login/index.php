@@ -15,7 +15,7 @@
     }
 
     .body-login {
-        background-image: url('images/fundo.jpg');
+        background-image: url('images/bg-login.jpg');
         background-size: cover;
         background-repeat: no-repeat;
         background-attachment: fixed;

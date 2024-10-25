@@ -17,7 +17,8 @@ class App
             unset($url[0]);
         }
 
-        if ($this->controller != 'login') {
+        if ($this->controller != 'login' ||
+            $this->controller != 'emocionometro') {
             AuthMiddleware::VerificarSessaoUsuario();
         }
 
@@ -49,6 +50,5 @@ class App
             $url = ltrim(rtrim($_SERVER['REQUEST_URI'], '/'), '/'); // Remove barras no início e no final
             return array_filter(explode('/', $url)); // Filtra elementos vazios
         }
-        
     }
 }
