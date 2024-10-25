@@ -8,7 +8,7 @@ class Login extends Controller
         }
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $login = $_POST['usuario'];
+            $login = filter_var($_POST['usuario'], FILTER_SANITIZE_SPECIAL_CHARS);
             $senha = $_POST['senha'];
 
             $UserModel = $this->model("Usuario");

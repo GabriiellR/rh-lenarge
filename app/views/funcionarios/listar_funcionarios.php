@@ -39,6 +39,7 @@
                         <th>Segmento</th>
                         <th>Setor</th>
                         <th>Gestor</th>
+                        <th>Administrador</th>
                     </tr>
                 </thead>
             </table>
@@ -59,11 +60,11 @@
                 <div class="row">
                     <div class="col s12 m12 l6 input-field">
                         <label for="nome">Nome</label>
-                        <input type="text" name="nome" id="nome" data-field="nome" data-type="input" placeholder="Digite um nome" required />
+                        <input type="text" name="nome" class="reset" id="nome" data-field="nome" data-type="input" placeholder="Digite um nome" required />
                     </div>
                     <div class="col s12 m12 l6 input-field">
                         <label for="login">Login</label>
-                        <input type="text" name="login" id="login" data-field="login" data-type="input" placeholder="Defina o login" required />
+                        <input type="text" name="login" class="reset" id="login" data-field="login" data-type="input" placeholder="Defina o login" required />
                     </div>
                 </div>
 
@@ -143,12 +144,12 @@
                         <div class="col s12 m12 l6">
                             <p>Administrador?</p>
                             <label>
-                                <input name="administrador" type="radio" value="1" data-type="administrador" data-field="radio" />
+                                <input name="administrador" type="radio" value="1" data-type="radio" data-field="administrador" />
                                 <span>Sim</span>
                             </label>
 
                             <label>
-                                <input name="administrador" type="radio" value="0" data-type="administrador" data-field="radio" />
+                                <input name="administrador" type="radio" value="0" data-type="radio" data-field="administrador" />
                                 <span>Não</span>
                             </label>
                         </div>
@@ -156,12 +157,12 @@
                         <div class="col s12 m12 l6">
                             <p>Ativo?</p>
                             <label>
-                                <input name="ativo" type="radio" value="1" data-type="ativo" data-field="radio" />
+                                <input name="ativo" type="radio" value="1" data-type="radio" data-field="ativo" />
                                 <span>Sim</span>
                             </label>
 
                             <label>
-                                <input name="ativo" type="radio" value="0" data-type="ativo" data-field="radio" />
+                                <input name="ativo" type="radio" value="0" data-type="radio" data-field="ativo" />
                                 <span>Não</span>
                             </label>
                         </div>
@@ -171,19 +172,19 @@
                         <div class="col s12 m12 l6">
                             <p>Redefinir Senha?</p>
                             <label>
-                                <input name="redefinir_senha" id="redefinir-senha" type="radio" value="1" data-type="ativo" data-field="radio" />
+                                <input name="redefinir_senha" id="redefinir-senha" type="radio" value="1" data-type="radio" data-field="redefinir_senha" />
                                 <span>Sim</span>
                             </label>
 
                             <label>
-                                <input name="redefinir_senha" type="radio" checked value="0" data-type="ativo" data-field="radio" />
+                                <input name="redefinir_senha" type="radio" value="0" data-type="radio" data-field="redefinir_senha" />
                                 <span>Não</span>
                             </label>
 
                         </div>
                         <div class="col s12 m12 l6 input-field hide" id="col-senha">
                             <label for="senha" class="active">Senha</label>
-                            <input type="hidden" name="senha" id="senha" placeholder="Defina uma senha" />
+                            <input type="hidden" class="reset" name="senha" id="senha" placeholder="Defina uma senha" />
                         </div>
                     </div>
 
@@ -225,6 +226,12 @@
                     },
                     {
                         data: 'gestor'
+                    },
+                    {
+                        data: 'administrador',
+                        render(adminsitrador){
+                            return adminsitrador ? "Sim" : 'Não'
+                        }
                     }
                 ],
                 functionDetalhes: ((rowData) => {
@@ -241,7 +248,7 @@
 
             function ConfigurarModalFuncionario(rowData) {
                 $('.modal').modal();
-                $('.modal input').val('');
+                $('.modal .reset').val('');
                 $('#novo-funcionario').modal('open');
 
                 if (rowData) {
@@ -285,7 +292,6 @@
 
                 });
             }
-
         })
     </script>
 

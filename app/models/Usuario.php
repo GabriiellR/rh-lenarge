@@ -10,7 +10,8 @@ class Usuario
                                        nome,
                                        data_admissao
                                   FROM usuarios
-                                 WHERE login = '$usuario'");
+                                 WHERE login = '$usuario'
+                                   AND ativo = true");
     }
 
     public static function BuscarTodosUsuarios()
@@ -23,7 +24,10 @@ class Usuario
                                        c.nome funcao,
                                        d.nome segmento,
                                        e.nome setor,
-                                       f.nome gestor
+                                       f.nome gestor,
+                                       a.administrador,
+                                       a.redefinir_senha,
+                                       a.ativo
                                   FROM usuarios a
                              LEFT JOIN departamentos b ON b.id = a.departamento_id
                              LEFT JOIN funcoes c ON c.id = a.funcao_id

@@ -45,11 +45,25 @@ class Funcionarios extends Controller
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-            $id = $_POST['id'];
+            $id = filter_var($_POST['id'], FILTER_SANITIZE_NUMBER_INT);
             $nome = $_POST['nome'];
+            $data_admissao = $_POST['data_admissao'];
+            $departamento = $_POST['departamento'];
+            $segmento = $_POST['segmento'];
+            $setor = $_POST['setor'];
+            $subsetor = $_POST['subsetor'];
+            $funcao = $_POST['funcao'];
+            $gestor = $_POST['gestor'];
+            $ativo = $_POST['ativo'];
+            $redefinir_senha = $_POST['redefinir_senha'];
+
+            //TODO: SE TIVER DEFINICAO DE ID, VERIFICAR SENHA SE NAO APENAS SALVAR NOVO USUARIO
+
+            if ($gestor == $_SESSION['user']['id']) throw new Error("O usuário não pode ser gestor de si mesmo");
+
 
             $funcaoModel = $this->model("Usuario");
-            $funcaoModel::AddorUpdate($id, $nome);
+            $funcaoModel::AddorUpdate($id, $nome, $data_admissao, $departamento, $segmento, $setor, $subsetor, $funcao, $gestor, $ativo, $redefinir_senha);
 
             header('Location: /funcionarios');
         } else {
@@ -57,6 +71,4 @@ class Funcionarios extends Controller
             echo "Método não permitido";
         }
     }
-
-
 }
