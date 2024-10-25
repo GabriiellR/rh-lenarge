@@ -117,7 +117,9 @@ class Helper {
                 objeto.prop('checked', !!valor);
             },
             radio: function (objeto, valor) {
-                objeto.prop('checked', objeto.val() == valor);
+                console.log(objeto);
+                const valorCampo = objeto.val();
+                objeto.prop('checked', valorCampo == valor);
             }
         };
 
