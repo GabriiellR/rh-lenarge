@@ -17,8 +17,10 @@ class App
             unset($url[0]);
         }
 
-        if ($this->controller != 'login' ||
-            $this->controller != 'emocionometro') {
+        if (
+            $this->controller != "login" &&
+            $this->controller != "emocionometro"
+        ) {
             AuthMiddleware::VerificarSessaoUsuario();
         }
 
