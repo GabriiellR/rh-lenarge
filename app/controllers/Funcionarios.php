@@ -62,10 +62,10 @@ class Funcionarios extends Controller
             if ($gestor == $_SESSION['user']['id']) throw new Error("O usuário não pode ser gestor de si mesmo");
 
 
-            $funcaoModel = $this->model("Usuario");
-            $funcaoModel::AddorUpdate($id, $nome, $data_admissao, $departamento, $segmento, $setor, $subsetor, $funcao, $gestor, $ativo, $redefinir_senha);
+            $usuarioModel = $this->model("Usuario");
+            $usuarioModel::AddorUpdate($id, $nome, $data_admissao, $departamento, $segmento, $setor, $subsetor, $funcao, $gestor, $ativo, $redefinir_senha);
 
-            header('Location: /funcionarios');
+            header('Location: /funcionarios/listar_funcionarios');
         } else {
             http_response_code(405);
             echo "Método não permitido";

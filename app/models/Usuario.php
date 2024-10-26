@@ -36,12 +36,24 @@ class Usuario
                              LEFT JOIN usuarios f ON f.id = a.gestor_id");
     }
 
-    public static function AddorUpdate($id, $nome)
+    public static function AddorUpdate($id, $nome, $data_admissao, $departamento_id, $segmento_id, $setor_id, $subsetor_id, $funcao_id, $gestor_id, $ativo, $redefinir_senha)
     {
         if ($id) {
-            return Database::query("UPDATE usuarios SET nome='$nome' WHERE id=$id");
+            return Database::query("UPDATE usuarios 
+                                       SET nome='$nome',
+                                           data_admissao='$data_admissao',
+                                           departamento_id='$departamento_id',
+                                           segmento_id='$segmento_id' ,
+                                           setor_id='$setor_id',
+                                           subsetor_id='$subsetor_id',
+                                           funcao_id='$funcao_id',
+                                           gestor_id='$gestor_id',
+                                           ativo='$ativo',
+                                           redefinir_senha='$redefinir_senha'
+                                     WHERE id=$id");
         } else {
-            return Database::query("INSERT INTO usuarios(nome) VALUES('$nome')");
+            return Database::query("INSERT INTO usuarios(nome, data_admissao, departamento_id, segmento_id, setor_id, subsetor_id, funcao_id, gestor_id, ativo, redefinir_senha)
+                                                  VALUES('$nome', '$data_admissao', $departamento_id, $segmento_id, $setor_id, $subsetor_id, $funcao_id, $gestor_id, $ativo, $redefinir_senha)");
         }
     }
 }

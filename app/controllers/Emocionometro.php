@@ -8,7 +8,14 @@ class Emocionometro extends Controller
             session_start();
         }
 
-        $this->view('emocionometro/index', []);
+        $setorModel = $this->model("Setor");
+        $setores = $setorModel->BuscarTodosSetores();
+
+        $data = [
+            "setores" => $setores
+        ];
+
+        $this->view('emocionometro/index', [$data]);
     }
 
     public function AddorUpdate()
