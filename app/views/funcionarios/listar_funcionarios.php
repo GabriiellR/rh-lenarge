@@ -77,7 +77,6 @@
                             <?php } ?>
                         </select>
                         <label for="departamento" class="active">Departamento</label>
-
                     </div>
 
                     <div class="col s12 m12 l6 input-field">
@@ -101,7 +100,6 @@
                             <?php } ?>
                         </select>
                         <label for="setor" class="active">Setor</label>
-
                     </div>
 
                     <div class="col s12 m12 l6 input-field">

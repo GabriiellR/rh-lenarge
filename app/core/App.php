@@ -19,7 +19,7 @@ class App
 
         if (
             $this->controller != "login" &&
-            $this->controller != "emocionometro"
+            $this->controller != "emocionometros"
         ) {
             AuthMiddleware::VerificarSessaoUsuario();
         }
