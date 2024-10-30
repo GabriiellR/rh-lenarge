@@ -99,6 +99,20 @@
         </div>
 
         <div class="col s12 m6 l3">
+            <a href="emocionometros/listar_emocoes">
+                <div class="card hoverable">
+                    <div class="card-content white-text">
+                        <span class="card-title center-align element">
+                            <h2> <i class="medium material-icons">description</i></h2>
+                        </span>
+                        <p class="center-align">Emocionômetro</p>
+                        <p class="center-align"><strong><small>Relatório de emoções</small></strong></p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <div class="col s12 m6 l3">
             <a href="#">
                 <div class="card hoverable disabled">
                     <div class="card-content white-text">

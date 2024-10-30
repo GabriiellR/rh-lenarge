@@ -77,7 +77,7 @@
             <div class="container-login bg-color" data-aos="fade-right">
 
                 <div class="titulo">
-                    <h5>RH Lenarge</h5>
+                    <h5>Avaliação de Eficácia</h5>
                 </div>
 
                 <div class="campos-login w-100 pl-2">

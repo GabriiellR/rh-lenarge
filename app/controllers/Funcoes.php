@@ -5,9 +5,9 @@ class Funcoes extends Controller
     public function index()
     {
         $funcoesModel = $this->model('Funcao');
-        $funcoe = $funcoesModel::BuscarTodasFuncoes();
+        $funcoes = $funcoesModel::BuscarTodasFuncoes();
         
-        $this->view('funcionarios/listar_funcoes', $funcoe);
+        $this->view('funcionarios/listar_funcoes', $funcoes);
     }
 
     public function AddorUpdate()

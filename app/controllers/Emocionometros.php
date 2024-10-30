@@ -18,6 +18,15 @@ class Emocionometros extends Controller
         $this->view('emocionometro/index', [$data]);
     }
 
+    public function listar_emocoes(){
+
+        $emocoesModel = $this->model('Emocionometro');
+        $emocoes = $emocoesModel::ListarEmocoes();
+
+
+        return $this->view('funcionarios/listar_emocoes', $emocoes);
+    }
+
     public function AddorUpdate()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
