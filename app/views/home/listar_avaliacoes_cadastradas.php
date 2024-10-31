@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <?php $titulo_pagina = "Subsetores";
+    <?php $titulo_pagina = "Avaliações Cadastradas";
     include '../public/componentes/navbar.php';
     include '../public/componentes/sidebar.php'; ?>
 
@@ -18,8 +18,8 @@
             <nav class="bread">
                 <div class="nav-wrapper <?php echo $navbar_color ?>">
                     <div class="col s12">
-                        <a href="/funcionarios" class="breadcrumb <?php echo $text_color ?>">Funcionários</a>
-                        <a href="#" class="breadcrumb <?php echo $text_color ?>">Lista de Subsetores</a>
+                        <a href="/home" class="breadcrumb <?php echo $text_color ?>">Home</a>
+                        <a href="#" class="breadcrumb <?php echo $text_color ?>">Avaliações Cadastradas</a>
                     </div>
                 </div>
             </nav>
@@ -28,40 +28,15 @@
 
     <div class="row mt-2">
         <div class="col s12 m12 l12">
-            <table id="table-subsetores">
+            <table id="table-avaliacoes">
                 <thead>
                     <tr>
                         <th>Id</th>
-                        <th>Nome</th>
+                        <th>Título</th>
                     </tr>
                 </thead>
             </table>
         </div>
-    </div>
-
-    <!-- MODAL NOVO DEPARTAMENTO -->
-    <div class="modal" id="novo-subsetor">
-        <form action="subsetores/addorupdate" method="POST">
-            <div class="modal-content">
-
-                <div class="row">
-                    <div class="col s12 m12 l12">
-                        <h5>Informações Subsetor</h5>
-                    </div>
-                </div>
-
-                <input type="hidden" name="id" data-field="id" data-type="input" />
-
-                <div class="row">
-                    <div class="col s12 m12 l12 input-field">
-                        <label for="nome">Nome</label>
-                        <input type="text" name="nome" id="nome" data-field="nome" data-type="input" placeholder="Defina um nome" />
-                    </div>
-                </div>
-
-            </div>
-            <div class="modal-footer"><button class="btn">Salvar</button></div>
-        </form>
     </div>
 
     <script type="text/javascript" src="../js/datatables/datatables.js"></script>
@@ -77,30 +52,20 @@
                         data: 'id'
                     },
                     {
-                        data: 'nome'
+                        data: 'titulo'
                     },
                 ],
                 functionDetalhes: ((rowData) => {
-                    ConfigurarModalDpartamento(rowData);
+                    location.href = `detalhes_avaliacao`
                 }),
                 functionNovoRegistro: (() => {
-                    ConfigurarModalDpartamento();
+                    location.href = `detalhes_avaliacao`
                 })
             }
 
             var helperClass = new Helper();
-            var elemento = '#table-subsetores';
+            var elemento = '#table-avaliacoes';
             helperClass.CarregarDatatables(elemento, settings);
-
-            function ConfigurarModalDpartamento(rowData) {
-                $('.modal').modal();
-                $('.modal input').val('');
-                $('#novo-subsetor').modal('open');
-
-                if (rowData) {
-                    helperClass.PreencherDados(rowData);
-                }
-            }
         })
     </script>
 

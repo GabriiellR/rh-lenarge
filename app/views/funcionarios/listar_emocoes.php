@@ -26,7 +26,7 @@
         </div>
     </div>
 
-    <div class="row mt-2">
+    <div class="row mt-2"> 
         <div class="col s12 m12 l12">
             <table id="table-funcoes">
                 <thead>

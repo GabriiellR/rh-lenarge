@@ -8,9 +8,9 @@
 <body>
 
     <?php $titulo_pagina = "Avaliações";
-          include '../public/componentes/navbar.php';
-          include '../public/componentes/sidebar.php'
-     ?>
+    include '../public/componentes/navbar.php';
+    include '../public/componentes/sidebar.php'
+    ?>
 
     <div class="row mt-2">
         <div class="col s12 m12 l6">
@@ -52,6 +52,19 @@
                         </span>
                         <p class="center-align mt-1">Configurações</p>
                         <p class="center-align"><strong><small>Configurações do sistema</small></strong></p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col s12 m6 l6">
+            <a href="#">
+                <div class="card hoverable disabled">
+                    <div class="card-content white-text">
+                        <span class="card-title center-align element">
+                            <h2> <i class="medium material-icons">import_export</i></h2>
+                        </span>
+                        <p class="center-align">Importação</p>
+                        <p class="center-align"><strong><small>Importe dados para o sistema</small></strong></p>
                     </div>
                 </div>
             </a>
