@@ -19,12 +19,21 @@ class Home extends Controller
 
     public function Detalhes_avaliacao($avaliacao_id = null)
     {
+        try {
 
-        if ($avaliacao_id) {
-            $avaliacaoModel = $this->model("Avaliacao");
-            $detalhes_avaliacao = $avaliacaoModel::BuscarDetalhesAvaliacao($avaliacao_id);
+            // TODO: PERMITIR NAO TER AVALIACAOID PARA OS CASOS DE CADASTRO.
+            if ($avaliacao_id) {
+                $avaliacaoModel = $this->model("Avaliacao");
+                $detalhes_avaliacao = $avaliacaoModel::BuscarDetalhesAvaliacao($avaliacao_id);
+            }
+
+            if ($detalhes_avaliacao) {
+            }
+
+
+            $this->view('home/detalhes_avaliacao', $detalhes_avaliacao);
+        } catch (Exception $e) {
+            
         }
-
-        $this->view('home/detalhes_avaliacao', $detalhes_avaliacao);
     }
 }

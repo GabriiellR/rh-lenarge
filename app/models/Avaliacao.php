@@ -8,7 +8,7 @@ class Avaliacao
     }
 
     public static function BuscarDetalhesAvaliacao($avaliacao_id) {
-        return Database::query("SELECT * FROM avaliacoes WHERE id = $avaliacao_id");
+        return Database::query("SELECT id, titulo FROM avaliacoes WHERE id = $avaliacao_id");
     }
 
     public static function AddorUpdate($id, $nome)

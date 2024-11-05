@@ -69,6 +69,7 @@ CREATE TABLE avaliacoes_usuarios (
 );
 
 CREATE TABLE avaliacao_questoes (
+    id INT PRIMARY KEY NOT NULL AUTO_INCREMENT UNIQUE,
     avaliacao_id INT,
     criterio INT,
     questao_id INT,
@@ -80,6 +81,7 @@ CREATE TABLE questao_opcoes (
     id INT AUTO_INCREMENT PRIMARY KEY UNIQUE,
     questao_id INT,
     descricao VARCHAR(255),
+    correto TINYINT,
     FOREIGN KEY (questao_id) REFERENCES questoes(id)
 );
 

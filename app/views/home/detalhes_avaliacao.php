@@ -45,9 +45,9 @@
     <script type="text/javascript" src="/js/materialize/materialize.js"></script>
     <script type="text/javascript" src="/js/helpers/helper.js"></script>
     <script type="text/javascript">
-        // $(function() {
+        $(function(){
 
-        // })
+        });
     </script>
 
 </body>
